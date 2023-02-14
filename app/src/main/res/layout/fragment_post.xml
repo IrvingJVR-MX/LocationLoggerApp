@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".m.ui.ui.post.view.PostFragment">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:elevation="36dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="36sp"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:text="@string/new_log"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="82sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30sp"
+                    android:hint="@string/title"
+                    android:inputType="text"
+                    android:textColorHint="@color/colorTextBlack"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:counterTextColor="@color/colorTextBlack"
+                    app:hintTextColor="@color/colorTextBlack"
+                    app:placeholderTextColor="@color/colorTextBlack">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tf_log_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seg_ui_semibold"
+                        android:inputType="text"
+                        android:textColor="@color/colorTextBlack"
+                        android:textColorHint="@color/colorTextBlack" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="33sp"
+                    android:layout_marginEnd="30sp"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:text="@string/add_location"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="26sp"
+                    app:drawableLeftCompat="@drawable/ic_baseline_location_on_24"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_margin="25dp"
+                    android:elevation="40dp"
+                    app:cardCornerRadius="18dp">
+
+                    <ImageView
+                        android:id="@+id/iv_photo_log"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/add_image" />
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30sp"
+                    android:hint="@string/add_description"
+                    android:inputType="text"
+                    android:textColorHint="@color/colorTextBlack"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:counterTextColor="@color/colorTextBlack"
+                    app:hintTextColor="@color/colorTextBlack"
+                    app:placeholderTextColor="@color/colorTextBlack">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tf_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="all"
+                        android:fontFamily="@font/seg_ui_semibold"
+                        android:gravity="top|left"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:lines="5"
+                        android:maxLines="10"
+                        android:minLines="1"
+                        android:scrollbars="none"
+                        android:textColor="@color/colorTextBlack"
+                        android:textColorHint="@color/colorTextBlack" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:visibility="invisible"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="52sp"
+                    android:layout_marginStart="100sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="100sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/seg_ui_semibold"
+                    android:text="@string/post"
+                    android:textAllCaps="false"
+                    android:textColor="@color/ColorTextWhite"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+</LinearLayout>

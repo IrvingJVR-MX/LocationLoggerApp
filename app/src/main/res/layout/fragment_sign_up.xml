@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".m.ui.ui.signin.SignUpFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:elevation="36dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3.7"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="36sp"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:text="@string/register"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="26sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="75dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_select_photo"
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginEnd="108dp"
+                        android:background="@drawable/rounded_select_photo"
+                        android:padding="30dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/add_photo" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="82sp"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="30sp"
+                        android:hint="@string/username"
+                        android:inputType="text"
+                        android:textColorHint="@color/colorTextBlack"
+                        app:boxCornerRadiusBottomEnd="20dp"
+                        app:boxCornerRadiusBottomStart="20dp"
+                        app:boxCornerRadiusTopEnd="20dp"
+                        app:boxCornerRadiusTopStart="20dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:counterTextColor="@color/colorTextBlack"
+                        app:hintTextColor="@color/colorTextBlack"
+                        app:placeholderTextColor="@color/colorTextBlack"
+                        app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_register_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seg_ui_semibold"
+                            android:inputType="text"
+                            android:textColor="@color/colorTextBlack"
+                            android:textColorHint="@color/colorTextBlack" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="82sp"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginEnd="30sp"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="@color/colorTextBlack"
+                        app:boxCornerRadiusBottomEnd="20dp"
+                        app:boxCornerRadiusBottomStart="20dp"
+                        app:boxCornerRadiusTopEnd="20dp"
+                        app:boxCornerRadiusTopStart="20dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:counterTextColor="@color/colorTextBlack"
+                        app:hintTextColor="@color/colorTextBlack"
+                        app:placeholderTextColor="@color/colorTextBlack"
+                        app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_register_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seg_ui_semibold"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/colorTextBlack"
+                            android:textColorHint="@color/colorTextBlack" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="82sp"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginEnd="30sp"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/colorTextBlack"
+                        app:boxCornerRadiusBottomEnd="20dp"
+                        app:boxCornerRadiusBottomStart="20dp"
+                        app:boxCornerRadiusTopEnd="20dp"
+                        app:boxCornerRadiusTopStart="20dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:counterTextColor="@color/colorTextBlack"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/colorTextBlack"
+                        app:placeholderTextColor="@color/colorTextBlack"
+                        app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_register_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seg_ui_semibold"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorTextBlack"
+                            android:textColorHint="@color/colorTextBlack" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="82sp"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginEnd="30sp"
+                        android:hint="@string/confirm_password"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/colorTextBlack"
+                        app:boxCornerRadiusBottomEnd="20dp"
+                        app:boxCornerRadiusBottomStart="20dp"
+                        app:boxCornerRadiusTopEnd="20dp"
+                        app:boxCornerRadiusTopStart="20dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:counterTextColor="@color/colorTextBlack"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/colorTextBlack"
+                        app:placeholderTextColor="@color/colorTextBlack"
+                        app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_register_confirm_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seg_ui_semibold"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorTextBlack"
+                            android:textColorHint="@color/colorTextBlack" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="52sp"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginEnd="30sp"
+                        android:layout_marginBottom="116sp"
+                        android:background="@drawable/button_background"
+                        android:fontFamily="@font/seg_ui_semibold"
+                        android:text="@string/sign_up"
+                        android:textAllCaps="false"
+                        android:textColor="@color/ColorTextWhite"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

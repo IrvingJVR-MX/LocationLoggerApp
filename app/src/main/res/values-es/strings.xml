@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoggerApp</string>
+    <!-- Login-->
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="password">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="sign_in">Ingresar</string>
+
+    <!-- Sign up-->
+    <string name="register">Registrarse</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="sign_up">Registrarse</string>
+
+    <!-- Nav bar-->
+    <string name="home">Casa</string>
+    <string name="chat">Chats</string>
+    <string name="like">Posts Favoritos</string>
+    <string name="friends">Amigos</string>
+    <string name="profile">Perfil</string>
+    <string name="log">Nuevo registro</string>
+    <string name="hello_blank_fragment">ea</string>
+
+    <!-- Edit profile-->
+    <string name="edit_profile">Editar perfil</string>
+
+    <!-- Add Log-->
+    <string name="new_log">Nuevo registro</string>
+    <string name="title">Título</string>
+    <string name="post">Publicar</string>
+    <string name="add_location">Agregar ubicación</string>
+    <string name="add_description">Añadir descripción</string>
+    <!-- Alert dialog-->
+    <string name="caution">Precaución!!</string>
+    <string name="delete_post">¿Está seguro de que desea eliminar esta publicación de registro?</string>
+    <!-- Select Location-->
+    <string name="select_location">Por favor seleccione una ubicación</string>
+    <!-- Errors-->
+    <string name="unknown_error">Ocurrió un error inesperado </string>
+    <!-- Extras-->
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="save">Guardar</string>
+    <string name="add_post">Añade post</string>
+    <string name="password_no_match">Las contraseñas no coinciden</string>
+
+
+</resources>

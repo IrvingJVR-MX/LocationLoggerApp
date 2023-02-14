@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_bottom_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/friendFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.friend.view.FriendFragment"
+        android:label="fragment_friend"
+        tools:layout="@layout/fragment_friend" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.profile.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.chat.View.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.home.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapFragment2"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.post.view.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/action_postFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.post.Location.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.profile.editprofile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPostFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.detailpost.view.DetailPostFragment"
+        android:label="fragment_detail_post"
+        tools:layout="@layout/fragment_detail_post" >
+        <action
+            android:id="@+id/action_detailPostFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailPostFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+</navigation>

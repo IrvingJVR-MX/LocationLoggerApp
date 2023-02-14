@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">LoggerApp</string>
+
+    <!-- Login-->
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="email">Email</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome">Welcome</string>
+    <string name="sign_in">Sign in</string>
+
+    <!-- Sign up-->
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign up</string>
+
+    <!-- Nav bar-->
+    <string name="home">Home</string>
+    <string name="chat">Chats</string>
+    <string name="like">Favorite posts</string>
+    <string name="friends">friends</string>
+    <string name="profile">Profile</string>
+    <string name="log">New log</string>
+    <string name="hello_blank_fragment">ea</string>
+
+    <!-- Edit profile-->
+    <string name="edit_profile">Edit profile</string>
+
+    <!-- Add Log-->
+    <string name="new_log">New log</string>
+    <string name="title">Title</string>
+    <string name="post">Post</string>
+    <string name="add_location">Add location</string>
+    <string name="add_description">Add description</string>
+
+    <!-- Alert dialog-->
+    <string name="caution">Caution!!</string>
+    <string name="delete_post">¿Are you sure you want to delete this log post?</string>
+
+    <!-- Select Location-->
+    <string name="select_location">Please select location</string>
+
+    <!-- Errors-->
+    <string name="unknown_error">Unexpected error occurred</string>
+
+    <!-- Extras-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save">Save</string>
+    <string name="add_post">Add Post</string>
+    <string name="password_no_match">Passwords do not match</string>
+
+
+
+
+</resources>
