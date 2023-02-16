@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.bootcamp.locationloggerapp.databinding.FragmentFriendBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,7 +24,7 @@ class FriendFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener{
+        binding.button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
         }
     }

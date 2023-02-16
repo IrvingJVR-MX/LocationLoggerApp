@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
             Firebase.database.setPersistenceEnabled(true)
             startActivity(intent)
             finish()
-        }else{
+        } else {
             val intent = Intent(this, LoginActivity::class.java)
             Firebase.database.setPersistenceEnabled(true)
             startActivity(intent)

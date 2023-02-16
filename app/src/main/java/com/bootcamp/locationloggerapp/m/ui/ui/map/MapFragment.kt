@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bootcamp.locationloggerapp.R
 import com.bootcamp.locationloggerapp.databinding.FragmentMapBinding
+import com.bootcamp.locationloggerapp.m.ui.utils.Constants
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,12 +17,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 
-class MapFragment : Fragment(),OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
     private var mMap: GoogleMap? = null
     private var latitude: Double = 0.0
-    private var  longitude: Double = 0.0
+    private var longitude: Double = 0.0
     private var placeName: String = ""
     private var destination: String = ""
 
@@ -35,34 +36,34 @@ class MapFragment : Fragment(),OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        args ()
+        args()
         initButton()
         createFragment()
     }
 
-    private fun initButton(){
-        binding.btnBack.setOnClickListener{
+    private fun initButton() {
+        binding.btnBack.setOnClickListener {
             navBack()
         }
     }
 
-    private fun navBack(){
+    private fun navBack() {
         when (destination) {
-            "home" ->    findNavController().navigate(R.id.homeFragment)
-            "profile" ->   findNavController().navigate(R.id.profileFragment)
+            Constants.home -> findNavController().navigate(R.id.homeFragment)
+            Constants.profile -> findNavController().navigate(R.id.profileFragment)
             else -> {
                 findNavController().navigate(R.id.homeFragment)
             }
         }
     }
 
-    private fun args (){
+    private fun args() {
         val args = this.arguments
-        val destinationArgs = args?.get("destination")
-        val placeNameArgs = args?.get("placeName")
-        val latitudeArgs =  args?.get("latitude")
-        val longitudeArgs = args?.get("longitude")
-        if (placeNameArgs !=null){
+        val destinationArgs = args?.get(Constants.destination)
+        val placeNameArgs = args?.get(Constants.placeName)
+        val latitudeArgs = args?.get(Constants.latitude)
+        val longitudeArgs = args?.get(Constants.longitude)
+        if (placeNameArgs != null) {
             placeName = placeNameArgs as String
             latitude = latitudeArgs as Double
             longitude = longitudeArgs as Double
@@ -71,7 +72,8 @@ class MapFragment : Fragment(),OnMapReadyCallback {
     }
 
     private fun createFragment() {
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map_route_fragment) as? SupportMapFragment
+        val mapFragment =
+            childFragmentManager.findFragmentById(R.id.map_route_fragment) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
     }
 
@@ -80,7 +82,7 @@ class MapFragment : Fragment(),OnMapReadyCallback {
         addMarker()
     }
 
-    private fun addMarker(){
+    private fun addMarker() {
         mMap!!.addMarker(
             MarkerOptions()
                 .title(placeName)

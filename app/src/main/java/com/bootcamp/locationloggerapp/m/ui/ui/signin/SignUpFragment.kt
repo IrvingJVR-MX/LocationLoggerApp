@@ -33,6 +33,7 @@ class SignUpFragment : Fragment() {
                 binding.ibSelectPhoto.setImageURI(selectedPhoto)
             }
         }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         FirebaseApp.initializeApp(context)
@@ -42,6 +43,7 @@ class SignUpFragment : Fragment() {
         super.onCreate(savedInstanceState)
         observers()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,32 +57,38 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonAction()
     }
-    private fun buttonAction(){
-        binding.btnBack.setOnClickListener{
+
+    private fun buttonAction() {
+        binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.loginFragment)
         }
 
-        binding.ibSelectPhoto.setOnClickListener{
+        binding.ibSelectPhoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             openGallery.launch(intent)
         }
 
-        binding.btnSignUp.setOnClickListener{
+        binding.btnSignUp.setOnClickListener {
             val username = binding.tvRegisterUsername.text.toString()
             val email = binding.tvRegisterEmail.text.toString()
             val password = binding.tvRegisterPassword.text.toString()
             val confirmPassword = binding.tvRegisterConfirmPassword.text.toString()
-            if (password != confirmPassword){
-                Toast.makeText(requireContext(), binding.root.resources.getString(R.string.password_no_match), Toast.LENGTH_SHORT).show()
-            }else{
-                viewModel.registerUserAuth(username, email, password,selectedPhoto)
+            if (password != confirmPassword) {
+                Toast.makeText(
+                    requireContext(),
+                    binding.root.resources.getString(R.string.password_no_match),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewModel.registerUserAuth(username, email, password, selectedPhoto)
             }
         }
 
     }
-    private fun observers(){
+
+    private fun observers() {
         val errorObserver = Observer<String> { errorMessage ->
             Toast.makeText(requireActivity(), "error $errorMessage", Toast.LENGTH_SHORT).show()
         }

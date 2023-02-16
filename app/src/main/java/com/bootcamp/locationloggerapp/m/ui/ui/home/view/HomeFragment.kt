@@ -1,18 +1,12 @@
 package com.bootcamp.locationloggerapp.m.ui.ui.home.view
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.net.NetworkInfo
-import android.os.Build
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -22,10 +16,12 @@ import com.bootcamp.locationloggerapp.databinding.FragmentHomeBinding
 import com.bootcamp.locationloggerapp.m.ui.repository.model.PostDetail
 import com.bootcamp.locationloggerapp.m.ui.ui.home.viewmodel.HomeViewModel
 import com.bootcamp.locationloggerapp.m.ui.ui.home.adapter.HomeListAdapter
+import com.bootcamp.locationloggerapp.m.ui.utils.Constants
+import com.bootcamp.locationloggerapp.m.ui.utils.IHomeList
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), HomeListAdapter.IListListener {
+class HomeFragment : Fragment(), IHomeList {
     private lateinit var adapter: HomeListAdapter
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -64,7 +60,6 @@ class HomeFragment : Fragment(), HomeListAdapter.IListListener {
     }
 
 
-
     private fun setRecycler() {
         val linearLayoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -72,27 +67,26 @@ class HomeFragment : Fragment(), HomeListAdapter.IListListener {
         binding.recyclerviewPeople.layoutManager = linearLayoutManager
     }
 
-    override fun locationDetail(post : PostDetail) {
+    override fun locationDetail(post: PostDetail) {
         val bundle = Bundle()
-        bundle.putString("destination","home")
-        bundle.putString("placeName",post.placeName)
-        bundle.putDouble("latitude", post.geoPoint!!.latitude)
-        bundle.putDouble("longitude", post.geoPoint.longitude)
+        bundle.putString(Constants.destination, Constants.home)
+        bundle.putString(Constants.placeName, post.placeName)
+        bundle.putDouble(Constants.latitude, post.geoPoint!!.latitude)
+        bundle.putDouble(Constants.longitude, post.geoPoint.longitude)
         findNavController().navigate(R.id.mapFragment, bundle)
     }
 
-    override fun postDetail(post : PostDetail) {
+    override fun postDetail(post: PostDetail) {
         val bundle = Bundle()
-        bundle.putString("title",post.title)
-        bundle.putString("destination","home")
-        bundle.putString("description",post.description)
-        bundle.putString("photoUrl",post.photoUrl)
-        bundle.putString("placeName",post.placeName)
-        bundle.putDouble("latitude", post.geoPoint!!.latitude)
-        bundle.putDouble("longitude", post.geoPoint.longitude)
+        bundle.putString(Constants.title, post.title)
+        bundle.putString(Constants.destination, Constants.home)
+        bundle.putString(Constants.description, post.description)
+        bundle.putString(Constants.photoUrl, post.photoUrl)
+        bundle.putString(Constants.placeName, post.placeName)
+        bundle.putDouble(Constants.latitude, post.geoPoint!!.latitude)
+        bundle.putDouble(Constants.longitude, post.geoPoint.longitude)
         findNavController().navigate(R.id.detailPostFragment, bundle)
     }
-
 
 
 }

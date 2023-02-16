@@ -5,7 +5,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.bootcamp.locationloggerapp.m.ui.repository.managers.AuthFirebaseManager
 import com.bootcamp.locationloggerapp.m.ui.repository.managers.FirebaseManager
 import com.bootcamp.locationloggerapp.m.ui.repository.managers.FirebaseStorageManager
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
 import dagger.Provides
@@ -42,10 +41,12 @@ object FirebaseModule {
         return FirebaseFirestore.getInstance()
     }
 
-    ///////////////////////
     @Singleton
     @Provides
-    fun provideFirebaseStorageManager(firebaseStorage : FirebaseStorage, firebaseAuth :FirebaseAuth): FirebaseStorageManager {
+    fun provideFirebaseStorageManager(
+        firebaseStorage: FirebaseStorage,
+        firebaseAuth: FirebaseAuth
+    ): FirebaseStorageManager {
         return FirebaseStorageManager(firebaseStorage, firebaseAuth)
     }
 

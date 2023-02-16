@@ -20,11 +20,14 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ManagersModule {
 
-  @Singleton
-  @Provides
-  fun provideUserManager(authManager: AuthFirebaseManager, firebaseManager: FirebaseManager): UserManager {
-      return UserManager(authManager, firebaseManager)
-  }
+    @Singleton
+    @Provides
+    fun provideUserManager(
+        authManager: AuthFirebaseManager,
+        firebaseManager: FirebaseManager
+    ): UserManager {
+        return UserManager(authManager, firebaseManager)
+    }
 
     @Singleton
     @Provides
@@ -38,13 +41,13 @@ object ManagersModule {
     fun provideFirebaseManager(firebaseFirestore: FirebaseFirestore): FirebaseManager {
         return FirebaseManager(firebaseFirestore)
     }
-    ////
+
     @Singleton
     @Provides
     fun provideFirebaseDataSource(): FirebaseDataSource = FirebaseManager(
         FirebaseFirestore.getInstance()
     )
-    ////
+
     @Singleton
     @Provides
     fun provideFirebaseStorage(): FirebaseStorageSource = FirebaseStorageManager(

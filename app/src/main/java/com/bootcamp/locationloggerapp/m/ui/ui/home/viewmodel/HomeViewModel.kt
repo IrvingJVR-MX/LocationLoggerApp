@@ -13,12 +13,12 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel
 @Inject
-constructor( private  val repository: FirebaseDataSource) : ViewModel(){
+constructor(private val repository: FirebaseDataSource) : ViewModel() {
     val errorMessage: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 
-    val logPostList : MutableLiveData<MutableList<PostDetail>> by lazy {
+    val logPostList: MutableLiveData<MutableList<PostDetail>> by lazy {
         MutableLiveData<MutableList<PostDetail>>()
     }
 
@@ -26,14 +26,10 @@ constructor( private  val repository: FirebaseDataSource) : ViewModel(){
         val result = repository.getNestedCollection(FirebaseCollections.Users)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }
-        else {
+        } else {
             logPostList.value = result.data
         }
     }
-
-
-
 
 }
 

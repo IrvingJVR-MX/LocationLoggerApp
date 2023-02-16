@@ -1,10 +1,8 @@
 package com.bootcamp.locationloggerapp.m.ui.repository.managers
 
-import android.util.Log
 import com.bootcamp.locationloggerapp.m.ui.utils.Response
 import com.google.firebase.auth.*
 import com.bootcamp.locationloggerapp.m.ui.repository.interfaces.AuthFirebaseDataSource
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 
 
@@ -28,8 +26,7 @@ class AuthFirebaseManager(private val auth: FirebaseAuth) : AuthFirebaseDataSour
         }
     }
 
-
-    fun singOut() : Response<String> {
+    fun singOut(): Response<String> {
         return try {
             val logout = auth.signOut()
             return Response.Success(logout.toString())

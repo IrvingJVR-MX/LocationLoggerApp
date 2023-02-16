@@ -16,19 +16,20 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel
 @Inject
-constructor(private  val userRepository: UserRepository,
-            private  val firebaseDataSource: FirebaseDataSource,
-            private val firebaseStorageSource: FirebaseStorageSource
-) : ViewModel(){
+constructor(
+    private val userRepository: UserRepository,
+    private val firebaseDataSource: FirebaseDataSource,
+    private val firebaseStorageSource: FirebaseStorageSource
+) : ViewModel() {
     val errorMessage: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 
-    val logPostList : MutableLiveData<MutableList<Post>> by lazy {
+    val logPostList: MutableLiveData<MutableList<Post>> by lazy {
         MutableLiveData<MutableList<Post>>()
     }
 
-    val userInfo : MutableLiveData<User> by lazy {
+    val userInfo: MutableLiveData<User> by lazy {
         MutableLiveData<User>()
     }
 
@@ -40,58 +41,53 @@ constructor(private  val userRepository: UserRepository,
         MutableLiveData<Boolean>()
     }
 
-
-    fun deletePhoto(id: String ,path: String) = viewModelScope.launch{
+    fun deletePhoto(id: String, path: String) = viewModelScope.launch {
         val result = firebaseStorageSource.deleteImage(path)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }else{
-            if (result.data == true){
+        } else {
+            if (result.data == true) {
                 deleteCollection(id)
-            }else{
+            } else {
                 errorMessage.value = "Error"
             }
         }
     }
 
-   private fun deleteCollection(id: String) = viewModelScope.launch {
-        val result = firebaseDataSource.deleteCollectionWithId(FirebaseCollections.Posts,id)
-        if (result.message?.isNotEmpty() == true)  {
+    private fun deleteCollection(id: String) = viewModelScope.launch {
+        val result = firebaseDataSource.deleteCollectionWithId(FirebaseCollections.Posts, id)
+        if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }
-        else {
+        } else {
             onDeletedPost.value = true
         }
     }
 
 
     fun getUserInfo(id: String) = viewModelScope.launch {
-        val result = firebaseDataSource.getUserInfo(FirebaseCollections.Users,id)
+        val result = firebaseDataSource.getUserInfo(FirebaseCollections.Users, id)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }
-        else {
+        } else {
             userInfo.value = result.data?.get(0)
         }
     }
 
 
     fun getUserCollections(id: String) = viewModelScope.launch {
-        val result = firebaseDataSource.getPostCollectionWithId(FirebaseCollections.Posts,id)
+        val result = firebaseDataSource.getPostCollectionWithId(FirebaseCollections.Posts, id)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }
-        else {
+        } else {
             logPostList.value = result.data
         }
     }
 
-    fun signOut(){
+    fun signOut() {
         val result = userRepository.signOut()
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }
-        else {
+        } else {
             onUserSignOut.value = true
         }
     }

@@ -1,29 +1,29 @@
 package com.bootcamp.locationloggerapp.m.ui.ui.home.adapter
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.locationloggerapp.databinding.ItemLogBinding
 import com.bootcamp.locationloggerapp.m.ui.repository.model.PostDetail
+import com.bootcamp.locationloggerapp.m.ui.utils.IHomeList
 import com.squareup.picasso.Picasso
 
-class HomeListAdapter(private val postDetailList: MutableList<PostDetail>, private val listener: IListListener) : RecyclerView.Adapter<HomeListAdapter.PersonViewHolder> () {
-
-    interface IListListener {
-        fun locationDetail(post: PostDetail)
-        fun postDetail(post: PostDetail)
-    }
+class HomeListAdapter(
+    private val postDetailList: MutableList<PostDetail>,
+    private val listener: IHomeList
+) : RecyclerView.Adapter<HomeListAdapter.PersonViewHolder>() {
 
     class PersonViewHolder(val binding: ItemLogBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun fillData(postDetail: PostDetail){
+        fun fillData(postDetail: PostDetail) {
             var url = postDetail.userPhotoUrl
             Picasso.get()
                 .load(url)
                 .into(binding.ivProfilePicture)
             binding.tvProfileName.text = postDetail.name
             binding.tvTitle.text = postDetail.title
-            if (postDetail.placeName != ""){
-                binding.tvLocation.text  = postDetail.placeName
+            if (postDetail.placeName != "") {
+                binding.tvLocation.text = postDetail.placeName
                 binding.tvLocation.visibility = View.VISIBLE
             }
             url = postDetail.photoUrl
@@ -45,7 +45,7 @@ class HomeListAdapter(private val postDetailList: MutableList<PostDetail>, priva
         val post = postDetailList[position]
         holder.fillData(post)
 
-        holder.binding.tvLocation.setOnClickListener{
+        holder.binding.tvLocation.setOnClickListener {
             listener.locationDetail(post)
         }
 

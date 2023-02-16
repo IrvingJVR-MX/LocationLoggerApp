@@ -44,23 +44,24 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         buttonAction()
     }
 
-    private fun buttonAction(){
-        binding.btnLoginSignin.setOnClickListener{
-            val email =  binding.tvLoginEmail.text.toString()
+    private fun buttonAction() {
+        binding.btnLoginSignin.setOnClickListener {
+            val email = binding.tvLoginEmail.text.toString()
             val password = binding.tvLoginPassword.text.toString()
-            viewModel.signIn(email,password)
+            viewModel.signIn(email, password)
 
         }
-        binding.tvLoginRegister.setOnClickListener{
+        binding.tvLoginRegister.setOnClickListener {
             findNavController().navigate(R.id.signUpFragment)
         }
     }
-    private fun observers(){
+
+    private fun observers() {
         val errorObserver = Observer<String> { errorMessage ->
             Toast.makeText(requireActivity(), "error $errorMessage", Toast.LENGTH_SHORT).show()
         }

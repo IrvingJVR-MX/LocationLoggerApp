@@ -17,49 +17,51 @@ import javax.inject.Inject
 @HiltViewModel
 class PostViewModel
 @Inject
-constructor (private val firebaseStorageSource: FirebaseStorageSource, private  val repository: FirebaseDataSource) : ViewModel(){
+constructor(
+    private val firebaseStorageSource: FirebaseStorageSource,
+    private val repository: FirebaseDataSource
+) : ViewModel() {
     val errorMessage: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
     val onPosted: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
     }
-    private lateinit var uriImage : Uri
-    private lateinit var postDetail : Post
+    private lateinit var uriImage: Uri
+    private lateinit var postDetail: Post
 
 
-    private fun postPhoto () = viewModelScope.launch{
+    private fun postPhoto() = viewModelScope.launch {
         val id = postDetail.id
-        val filename = UUID.randomUUID().toString()+ ".jpg"
+        val filename = UUID.randomUUID().toString() + ".jpg"
         val path = "Posts/$id/$filename"
         val result = firebaseStorageSource.saveImage(uriImage, path)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }else{
+        } else {
             postDetail.photoUrl = result.data
             addPostDocument()
         }
     }
 
     private fun addPostDocument() = viewModelScope.launch {
-        val id = postDetail.id?.let {  postDetail.id } ?: ""
-        val result = repository.addDocumentWithId(postDetail,FirebaseCollections.Posts, id)
+        val id = postDetail.id?.let { postDetail.id } ?: ""
+        val result = repository.addDocumentWithId(postDetail, FirebaseCollections.Posts, id)
         if (result.message?.isNotEmpty() == true) {
             errorMessage.value = result.message
-        }else{
+        } else {
             onPosted.value = true
         }
     }
 
 
-    fun addPost(post: Post,uri: Uri) = viewModelScope.launch {
+    fun addPost(post: Post, uri: Uri) = viewModelScope.launch {
         uriImage = uri
-        val resultId =  repository.getDocId(FirebaseCollections.Posts)
+        val resultId = repository.getDocId(FirebaseCollections.Posts)
         if (resultId.message?.isNotEmpty() == true) {
             errorMessage.value = resultId.message
-        }
-        else {
-            post.id =  resultId.data?.let {resultId.data } ?: ""
+        } else {
+            post.id = resultId.data?.let { resultId.data } ?: ""
             postDetail = post
             postPhoto()
         }

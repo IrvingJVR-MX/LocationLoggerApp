@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.bootcamp.locationloggerapp.R
 import com.bootcamp.locationloggerapp.databinding.FragmentChatBinding
-import com.bootcamp.locationloggerapp.databinding.FragmentHomeBinding
-
 
 class ChatFragment : Fragment() {
     private var _binding: FragmentChatBinding? = null

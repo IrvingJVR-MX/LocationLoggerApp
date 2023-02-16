@@ -11,7 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel
 @Inject
-constructor( private  val repository: UserRepository) : ViewModel(){
+constructor(private val repository: UserRepository) : ViewModel() {
     val errorMessage: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
@@ -20,13 +20,12 @@ constructor( private  val repository: UserRepository) : ViewModel(){
     }
 
     fun signIn(email: String, password: String) = viewModelScope.launch {
-            val result = repository.signInWithEmailAndPassword(email, password)
-            if (result.message?.isNotEmpty() == true) {
-                errorMessage.value = result.message
-            }
-            else {
-                onLogin.value = true
-            }
+        val result = repository.signInWithEmailAndPassword(email, password)
+        if (result.message?.isNotEmpty() == true) {
+            errorMessage.value = result.message
+        } else {
+            onLogin.value = true
+        }
     }
 }
 
