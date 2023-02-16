@@ -51,8 +51,7 @@ object ManagersModule {
     @Singleton
     @Provides
     fun provideFirebaseStorage(): FirebaseStorageSource = FirebaseStorageManager(
-        FirebaseStorage.getInstance(),
-        FirebaseAuth.getInstance()
+        FirebaseStorage.getInstance()
     )
 
 }

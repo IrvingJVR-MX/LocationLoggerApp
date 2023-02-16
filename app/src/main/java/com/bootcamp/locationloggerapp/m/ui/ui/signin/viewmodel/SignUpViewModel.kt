@@ -1,4 +1,4 @@
-package com.bootcamp.locationloggerapp.m.ui.ui.signin
+package com.bootcamp.locationloggerapp.m.ui.ui.signin.viewmodel
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData

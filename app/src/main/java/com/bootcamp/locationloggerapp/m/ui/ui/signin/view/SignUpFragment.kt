@@ -1,4 +1,4 @@
-package com.bootcamp.locationloggerapp.m.ui.ui.signin
+package com.bootcamp.locationloggerapp.m.ui.ui.signin.view
 
 import android.app.Activity.RESULT_OK
 import android.content.Context
@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.bootcamp.locationloggerapp.R
 import com.bootcamp.locationloggerapp.databinding.FragmentSignUpBinding
+import com.bootcamp.locationloggerapp.m.ui.ui.signin.viewmodel.SignUpViewModel
 import com.google.firebase.FirebaseApp
 import dagger.hilt.android.AndroidEntryPoint
 

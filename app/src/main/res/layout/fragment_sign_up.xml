@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
-    tools:context=".m.ui.ui.signin.SignUpFragment">
+    tools:context=".m.ui.ui.signin.view.SignUpFragment">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -45,9 +45,8 @@ object FirebaseModule {
     @Provides
     fun provideFirebaseStorageManager(
         firebaseStorage: FirebaseStorage,
-        firebaseAuth: FirebaseAuth
     ): FirebaseStorageManager {
-        return FirebaseStorageManager(firebaseStorage, firebaseAuth)
+        return FirebaseStorageManager(firebaseStorage)
     }
 
     @Singleton

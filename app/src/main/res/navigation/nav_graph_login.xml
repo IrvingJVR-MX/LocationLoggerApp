@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.bootcamp.locationloggerapp.m.ui.ui.signin.SignUpFragment"
+        android:name="com.bootcamp.locationloggerapp.m.ui.ui.signin.view.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 
